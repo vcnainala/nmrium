@@ -49,6 +49,8 @@ export function InnerNMRium(props: InnerNMRiumProps) {
     emptyText,
     apiRef,
     core,
+    highlight,
+    onHighlightChange,
   } = props;
 
   const rootRef = useRef<HTMLDivElement>(null);
@@ -120,7 +122,10 @@ export function InnerNMRium(props: InnerNMRiumProps) {
                           <TopicMoleculeProvider>
                             <DialogProvider>
                               <AlertProvider>
-                                <HighlightProvider>
+                                <HighlightProvider
+                                  value={highlight}
+                                  onChange={onHighlightChange}
+                                >
                                   <AssignmentProvider>
                                     <SpinnerProvider value={getSpinner}>
                                       <InnerNMRiumContents
